@@ -11,8 +11,8 @@ public class CustomerConfig {
     @Bean
     CommandLineRunner commandLineRunner(CustomerRepo customerRepo) {
         return args -> {
-            customerRepo.save(new Customer("Savas", "savas99" , "savas@gmail.com"));
-            customerRepo.save(new Customer("Sevim", "sevim73","sevim@gmail.com"));
+            customerRepo.save(new Customer("Savas", "password" , "savas@gmail.com"));
+            customerRepo.save(new Customer("Sevim", "password","sevim@gmail.com"));
         };
     }
 }
