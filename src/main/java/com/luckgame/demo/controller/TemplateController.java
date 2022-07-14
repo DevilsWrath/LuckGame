@@ -17,5 +17,10 @@ public class TemplateController {
     public String getMatches(){
         return "matches";
     }
+
+    @GetMapping("admin")
+    public String getAdmin(){
+        return "admin";
+    }
 }
 

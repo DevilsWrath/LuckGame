@@ -2,6 +2,7 @@ package com.luckgame.demo.customer;
 
 import com.luckgame.demo.domain.Role;
 import lombok.*;
+import org.springframework.boot.context.properties.bind.DefaultValue;
 
 import javax.persistence.*;
 
@@ -22,6 +23,8 @@ public class Customer {
     private String username;
     private String password;
     private String email;
+
+    private Float balance = 0f;
 
     @ManyToMany(fetch = EAGER)
     private Collection<Role> roles = new ArrayList<>();
