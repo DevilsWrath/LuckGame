@@ -19,9 +19,6 @@ import static javax.persistence.GenerationType.AUTO;
 @Data
 @NoArgsConstructor
 public class Match {
-    private String pattern = "dd/MM/yyyy";
-    private SimpleDateFormat simpleDateFormat= new SimpleDateFormat(pattern);
-
 
     @Id
     @GeneratedValue(strategy = AUTO)
@@ -29,7 +26,7 @@ public class Match {
 
     private String matchName;
 
-    private String matchDate = simpleDateFormat.format(new Date());
+    private String matchDate;
 
     private Float homeTeamRate;
 

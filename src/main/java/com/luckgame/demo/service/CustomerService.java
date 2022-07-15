@@ -11,5 +11,6 @@ public interface CustomerService {
     void addRoleToUser(String username, String roleName);
     Customer getCustomer(String username);
     List<Customer> getCustomers();
+    void setCustomerBalance(Customer customer);
 
 }

@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface MatchService {
     Match saveMatch(Match match);
-    Match getMatch(String matchId);
+    Match getMatch(Long matchId);
     List<Match> getMatches();
 }

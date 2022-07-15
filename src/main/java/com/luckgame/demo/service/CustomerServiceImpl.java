@@ -51,7 +51,11 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer getCustomer(String username) {
-        return null;
+        return customerRepo.findByUsername(username);
     }
 
+    @Override
+    public void setCustomerBalance(Customer customer) {
+        customerRepo.findByID(customer.getID()).setBalance(customer.getBalance());
+    }
 }

@@ -24,8 +24,8 @@ public class MatchServiceImpl implements MatchService {
     }
 
     @Override
-    public Match getMatch(String matchId) {
-        return null;
+    public Match getMatch(Long matchId) {
+        return matchRepo.findByMatchId(matchId);
     }
 
     @Override

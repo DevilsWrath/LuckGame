@@ -20,7 +20,7 @@ public class MatchController {
 
     @RequestMapping("/api/v1/matches")
     public String getMatches() {
-        return "matches";
+        return matchService.getMatches().toString();
     }
     @PostMapping("/api/v1/matches/admin")
     public void addMatch(@RequestBody Match match) {

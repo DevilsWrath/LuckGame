@@ -26,4 +26,5 @@ public class CustomerController {
     public void registerNewCustomer(@RequestBody Customer customer){
         customerService.addNewCustomer(customer);
     }
+
 }

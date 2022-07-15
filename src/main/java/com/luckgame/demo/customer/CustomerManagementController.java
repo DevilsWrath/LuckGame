@@ -25,7 +25,7 @@ public class CustomerManagementController {
     }
     @DeleteMapping("{id}")
     public void deleteCustomer(@PathVariable Long id) {
-        System.out.println(id);;
+        System.out.println(id);
     }
     @PutMapping("{id}")
     public void updateCustomer(@PathVariable Long id, Customer customer) {
