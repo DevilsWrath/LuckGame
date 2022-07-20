@@ -1,11 +1,9 @@
 package com.luckgame.demo.bet;
 
-import com.luckgame.demo.customer.Customer;
+import com.luckgame.demo.user.AppUser;
 import com.luckgame.demo.matches.Match;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Fetch;
-import org.hibernate.mapping.OneToMany;
 
 import javax.persistence.*;
 
@@ -21,13 +19,13 @@ public class Bet {
     @GeneratedValue(strategy = AUTO)
     private Long betId;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "customer_id")
-    private Customer userID;
+   // @ManyToOne(fetch = FetchType.EAGER)
+   // @JoinColumn(name = "user_id")
+    //private AppUser userID;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "match_id")
-    private Match matchID;
+    //@ManyToOne(fetch = FetchType.EAGER)
+   // @JoinColumn(name = "match_id")
+    //private Match matchID;
 
     private Float amount;
     private Byte betType;
@@ -41,13 +39,13 @@ public class Bet {
         this.betId = betId;
     }
 
-    public Customer getUserID() {
-        return userID;
-    }
+   // public AppUser getUserID() {
+  //      return UserID;
+   // }
 
-    public Match getMatchID() {
-        return matchID;
-    }
+   // public Match getMatchID() {
+   //     return matchID;
+   // }
 
     public Float getAmount() {
         return amount;

@@ -14,19 +14,21 @@
         }
     </style>
 </head>
-</html>
 <body>
 <div class="container">
-    <h1>Matches Test</h1>
-    <p>Matches will be listed here</p>
-
-    <form class="form-signin" method="get" action="/logout">
-        <button class="btn btn-primary btn-block" type="submit">Logout</button>
-    </form>
-    <form class="form-transaction" method="get" action="api/v1/transactions">
-        <button class="btn btn-primary btn-block" type="button" onclick="window.location.href='transactions.html'">Transactions</button>
+    <header>
+        <h1>
+            Enter the transaction details
+        </h1>
+    </header>
+    <form action="transactions.html">
+        <label for="amount">Amount</label>
+        <input type="number" name="amount" id="amount" placeholder="Amount">
+        <label for="type">Type</label>
+        <select name="type" id="type">
+            <option value="deposit">Deposit</option>
+            <option value="withdraw">Withdraw</option>
+        </select>
+        <input type="submit" name="Submit" onclick="window.location.href='matches.html'">
     </form>
 </div>
-
-</body>
-

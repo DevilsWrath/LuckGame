@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface BetRepo extends JpaRepository<Bet, Long> {
 
-    List<Bet> findBetByUserID(Long userID);
+   // List<Bet> findBetByUserID(Long userID);
     Bet findBetByBetType(Byte betType);
     Bet findBetByBetId(Long id);
 
