@@ -19,13 +19,13 @@ public class Bet {
     @GeneratedValue(strategy = AUTO)
     private Long betId;
 
-   // @ManyToOne(fetch = FetchType.EAGER)
-   // @JoinColumn(name = "user_id")
-    //private AppUser userID;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private AppUser userID;
 
-    //@ManyToOne(fetch = FetchType.EAGER)
-   // @JoinColumn(name = "match_id")
-    //private Match matchID;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "match_id")
+    private Match matchID;
 
     private Float amount;
     private Byte betType;
@@ -39,13 +39,13 @@ public class Bet {
         this.betId = betId;
     }
 
-   // public AppUser getUserID() {
-  //      return UserID;
-   // }
+    public AppUser getUserID() {
+        return userID;
+    }
 
-   // public Match getMatchID() {
-   //     return matchID;
-   // }
+    public Match getMatchID() {
+        return matchID;
+    }
 
     public Float getAmount() {
         return amount;

@@ -54,12 +54,14 @@ public class Transaction {
         isDeposit = deposit;
     }
 
-    public Transaction(AppUser appUserID, Float amount) {
+    public Transaction(AppUser appUserID, Float amount, Boolean isDeposit) {
         this.userID = appUserID;
         this.amount = amount;
+        this.isDeposit = isDeposit;
     }
 
-    public Transaction(Float amount) {
+    public Transaction(Float amount, Boolean isDeposit) {
         this.amount = amount;
+        this.isDeposit = isDeposit;
     }
 }

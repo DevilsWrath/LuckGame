@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -54,13 +55,17 @@ public class ApplicationSecurityConfig  extends WebSecurityConfigurerAdapter {
     @Autowired
     private CustomAuthenticationSuccessHandler loginSuccessHandler;
 
-
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/fonts/**","/css/**","/images/**","/js/**");
+    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
-                    .authorizeRequests()
+                    .authorizeRequests().antMatchers("/", "/fonts/**","/css/**","/images/**","/js/**").
+                permitAll()
                     .antMatchers("/").permitAll()
                     .antMatchers("/api//v1/Customer").hasRole("ADMIN")
                     .antMatchers("/admin/**").hasRole("ADMIN")
@@ -69,9 +74,11 @@ public class ApplicationSecurityConfig  extends WebSecurityConfigurerAdapter {
                     .anyRequest()
                     .authenticated()
                 .and()
-                    .formLogin().successHandler(loginSuccessHandler).permitAll()
+                    .formLogin()
+                .successHandler(loginSuccessHandler).permitAll()
                     .loginPage("/login").permitAll()
-                    .and()
+                    .failureUrl("/login?error=true")
+                .and()
                     .rememberMe().tokenValiditySeconds((int)TimeUnit.DAYS.toSeconds(21))
                     .key("luckgame-demo-remember-me-key")
                 .and()
