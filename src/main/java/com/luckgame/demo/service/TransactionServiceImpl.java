@@ -25,13 +25,14 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public void addTransaction(Transaction transaction) throws IllegalArgumentException{
 
-        if (transaction.getAmount() < 0) {
-            throw new IllegalArgumentException("Amount cannot be negative");
-        }
+
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             String currentUserName = authentication.getName();
            AppUser user = userRepo.findUserByUsername(currentUserName);
+        if (transaction.getAmount() < 0 && user.getBalance() < transaction.getAmount()) {
+            throw new IllegalArgumentException("Amount cannot be negative");
+        }
 
         Transaction newTransaction = new Transaction(user, transaction.getAmount(), transaction.getIsDeposit());
         transactionRepo.save(newTransaction);
