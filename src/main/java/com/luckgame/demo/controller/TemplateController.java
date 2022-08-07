@@ -21,11 +21,6 @@ public class TemplateController {
         return "login";
     }
 
-    @GetMapping("/matches")
-    public String getMatches(){
-        return "matches";
-    }
-
     @GetMapping("/admin")
     public String getAdmin(){
         return "admin";

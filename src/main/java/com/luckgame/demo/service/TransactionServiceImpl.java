@@ -25,8 +25,6 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public void addTransaction(Transaction transaction) throws IllegalArgumentException{
 
-
-
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             String currentUserName = authentication.getName();
            AppUser user = userRepo.findUserByUsername(currentUserName);

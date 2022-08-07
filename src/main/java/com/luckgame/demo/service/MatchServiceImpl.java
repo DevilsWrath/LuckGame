@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,7 +31,10 @@ public class MatchServiceImpl implements MatchService {
 
     @Override
     public List<Match> getMatches() {
-        return matchRepo.findAll();
+        List<Match> matches = new ArrayList<>();
+        matchRepo.findAll().forEach(matches::add);
+
+        return matches;
     }
 
     public void addNewMatch(Match match){

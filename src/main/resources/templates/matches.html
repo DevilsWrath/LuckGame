@@ -560,10 +560,53 @@
 
                             <body>
 <div class="container">
-    <h1>Matches Test</h1>
-    <p>Matches will be listed here</p>
+    <div class="sport-table">
 
-    <form class="form-signin" method="get" action="/logout">
+        <div class="sport-table-tr">
+
+            <div class="row sport-row align-items-center row-15">
+
+                <div class="col-sm-1 col-md-1 col-lg-1">
+
+                    <div class="sport-table-icon">
+
+                        <div class="sprite sprite-sport-icon-07"></div>
+
+                        <div th:if="${not #lists.isEmpty(matches)}">
+                            <h2>Match List</h2>
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Date</th>
+                                        <th>Home Team Rate</th>
+                                        <th>Away Team Rate</th>
+                                        <th>Draw Rate</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="Matches : ${matches}">
+                                        <td th:text = "${Matches.matchName}">Name</td>
+                                        <td th:text = "${Matches.matchDate}">Date</td>
+                                        <td th:text ="${Matches.homeTeamRate}">Home Team Rate</td>
+                                        <td th:text = "${Matches.awayTeamRate}">Away Team Rate</td>
+                                        <td th:text = "${Matches.drawRate}">Draw Rate</td>
+                                        <td>
+                                            <a th:href="@{'/bet/new/' + ${Matches.matchId}}">Bet</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                        <form class="form-signin" method="get" action="/logout">
         <button class="btn btn-primary btn-block" type="submit">Logout</button>
     </form>
     <form class="form-transaction" method="get" th:action="@{/transactions}">

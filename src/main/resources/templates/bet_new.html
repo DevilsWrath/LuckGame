@@ -7,7 +7,7 @@
 
     <!-- Site Title-->
 
-    <title>Transaction Page</title>
+    <title>[[${pageTitle}]]</title>
 
     <meta name="format-detection" content="telephone=no">
 
@@ -536,31 +536,37 @@
     </section>
 
     <body>
-        <h1>
-            Enter the transaction details
-        </h1>
 
-    <form th:action="@{matches}" th:object="${Transaction}" th:method="post">
+
+
+    <h1>
+        [[${pageTitle}]]
+    </h1>
+
+    <form th:action="@{'/bet/new/' + ${matchId}}" th:object="${bet}" th:method="POST">
 
         <label for="amount">Amount</label>
         <input type="number" name="amount" id="amount" placeholder="Amount" th:field = "*{amount}">
-        <label for="isDeposit">Type</label>
-        <select name="type" id="isDeposit" th:field="*{isDeposit}">
-            <option value="true">Deposit</option>
-            <option value="false">Withdraw</option>
-        </select>
-            <input type = "submit" value="Submit" >
-
+        <div class="form-group">
+            <label for="betType">Choose Bet Type</label>
+            <select class="form-control selectpicker" th:field="*{betType}" id="betType">
+                <option value="">Nothing selected</option>
+                <option th:each="betType : ${T(com.luckgame.demo.bet.BetTypes).values()}"
+                        th:value="${betType.name()}" th:text="${betType.name()}">
+                </option>
+            <input type = "submit" value="Submit" class="btn btn-primary m-2">
+            </select>
+        </div>
     </form>
     </form>
     </body>
 </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
 </div>
 <script th:src="@{/js/core.min.js}"></script>
 

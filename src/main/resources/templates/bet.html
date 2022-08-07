@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
-      xmlns:method="http://www.w3.org/1999/xhtml">
+<html xmlns:th="https://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <html class="wide wow-animation" lang="en">
 
 <head>
 
     <!-- Site Title-->
 
-    <title>Transaction Page</title>
+    <title>Login Page</title>
 
     <meta name="format-detection" content="telephone=no">
 
@@ -506,9 +505,6 @@
         </div>
 
     </header>
-
-
-
     <!-- Section Breadcrumbs-->
 
     <section class="section parallax-container breadcrumbs-wrap" data-parallax-img="images/bg-breadcrumbs-1-1920x726.jpg">
@@ -517,7 +513,7 @@
 
             <div class="container">
 
-                <h3 class="breadcrumbs-custom-title">Transactions Page</h3>
+                <h3 class="breadcrumbs-custom-title">Matches Page</h3>
 
                 <ul class="breadcrumbs-custom-path">
 
@@ -525,7 +521,7 @@
 
                     <li><a href="#">Pages</a></li>
 
-                    <li class="active">Transactions Page</li>
+                    <li class="active">Matches Page</li>
 
                 </ul>
 
@@ -535,26 +531,29 @@
 
     </section>
 
-    <body>
-        <h1>
-            Enter the transaction details
-        </h1>
 
-    <form th:action="@{matches}" th:object="${Transaction}" th:method="post">
 
-        <label for="amount">Amount</label>
-        <input type="number" name="amount" id="amount" placeholder="Amount" th:field = "*{amount}">
-        <label for="isDeposit">Type</label>
-        <select name="type" id="isDeposit" th:field="*{isDeposit}">
-            <option value="true">Deposit</option>
-            <option value="false">Withdraw</option>
-        </select>
-            <input type = "submit" value="Submit" >
+    <!-- Section Login/register-->
 
-    </form>
-    </form>
-    </body>
-</div>
+    <section class="section section-variant-1 bg-gray-100">
+
+        <div class="container">
+
+            <div class="row row-50 justify-content-center">
+
+                <div class="col-md-10 col-lg-8 col-xl-6">
+
+                    <div class="card-login-register" id="card-l-r">
+
+                        <div class="card-top-panel">
+
+                            <div class="card-top-panel-left">
+
+                                <h5 class="card-title card-title-login"></h5>
+
+                                <h5 class="card-title card-title-register">Register</h5>
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -562,9 +561,62 @@
         </div>
     </section>
 </div>
+                            </body>
+                        </div>
+</div>
+    <div class = "container">
+        <div class="sport-table">
+
+            <div class="sport-table-tr">
+
+                <div class="row sport-row align-items-center row-15">
+
+                    <div class="col-sm-1 col-md-1 col-lg-1">
+
+                        <div class="sport-table-icon">
+
+                            <div class="sprite sprite-sport-icon-07"></div>
+
+                            <div th:if="${not #lists.isEmpty(matches)}">
+                                <h2>Match List</h2>
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead class="thead-dark">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Date</th>
+                                        <th>Home Team Rate</th>
+                                        <th>Away Team Rate</th>
+                                        <th>Draw Rate</th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="match : ${matches}">
+                                            <td th:text = "${match.matchName}">Name</td>
+                                            <td th:text = "${match.matchDate}">Date</td>
+                                            <td th:text ="${match.homeTeamRate}">Home Team Rate</td>
+                                            <td th:text = "${match.awayTeamRate}">Away Team Rate</td>
+                                            <td th:text = "${match.drawRate}">Draw Rate</td>
+
+                                            <td>
+                                               <a class="h4 mr-3" th:href="@{'/bet/new' + ${match.matchId}}">Bet</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 <script th:src="@{/js/core.min.js}"></script>
 
 <script th:src="@{/js/script.js}"></script>
+                </div>
+            </div>
+        </div>
 </body>
-</html>
+</body>
 </html>
