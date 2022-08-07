@@ -1,6 +1,7 @@
 package com.luckgame.demo.service;
 
 import com.luckgame.demo.bet.Bet;
+import com.luckgame.demo.bet.BetTypes;
 import com.luckgame.demo.matches.Match;
 import com.luckgame.demo.repo.BetRepo;
 import com.luckgame.demo.repo.MatchRepo;
@@ -16,6 +17,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -41,6 +43,7 @@ public class BetServiceImpl implements BetService {
         }else {
             Bet newBet = new Bet(user, match ,bet.getAmount(), bet.getBetType(), bet.getBetId());
             betRepo.save(newBet);
+            user.setBalance(user.getBalance() - bet.getAmount());
         }
     }
 
@@ -51,6 +54,10 @@ public class BetServiceImpl implements BetService {
 
     @Override
     public void setBetResult(Bet bet) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentUserName = authentication.getName();
+        AppUser user = userRepo.findUserByUsername(currentUserName);
+
         for (Bet b : getBets()) {
              if (b.getMatchID() == bet.getMatchID()) {
                 b.setBetResult(bet.getBetResult());
@@ -58,9 +65,17 @@ public class BetServiceImpl implements BetService {
         }
         for (Bet b : getBets()) {
             if (bet.getBetResult() == b.getBetType()) {
-                bet.getUserID().setBalance(bet.getUserID().getBalance() + bet.getAmount());
+                Match currentMatch = matchRepo.findByMatchId(b.getMatchID().getMatchId());
+                if (b.getBetType() == BetTypes.HOME)
+                   user.setBalance(currentMatch.getHomeTeamRate() * b.getAmount());
+                else if (b.getBetType() == BetTypes.DRAW)
+                    user.setBalance(currentMatch.getDrawRate() * b.getAmount());
+                else if (b.getBetType() == BetTypes.AWAY)
+                    user.setBalance(currentMatch.getAwayTeamRate() * b.getAmount());
+
             }
         }
-
+        matchRepo.delete(bet.getMatchID());
     }
 }
+

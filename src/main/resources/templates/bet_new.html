@@ -543,6 +543,9 @@
         [[${pageTitle}]]
     </h1>
 
+<p>
+        [[${userBalance}]]
+    </p>
     <form th:action="@{'/bet/new/' + ${matchId}}" th:object="${bet}" th:method="POST">
 
         <label for="amount">Amount</label>
