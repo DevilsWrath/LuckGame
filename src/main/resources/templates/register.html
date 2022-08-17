@@ -1,19 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
-<head>
-  <meta charset="UTF-8">
-</head>
-<body>
-<!DOCTYPE html>
 
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <html class="wide wow-animation" lang="en">
 
 <head>
 
   <!-- Site Title-->
 
-  <title>Welcome to LuckGame</title>
+  <title>Register | LuckGame</title>
 
   <meta name="format-detection" content="telephone=no">
 
@@ -23,23 +17,21 @@
 
   <meta charset="utf-8">
 
-  <link rel="icon" href="/images/favicon.png" type="image/x-icon">
+  <script th:src="@{/js/3ts2ksMwXvKRuG480KNifJ2_JNM.js}"></script><link rel="icon" href="/images/favicon.png" type="image/x-icon">
 
   <!-- Stylesheets-->
 
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Kanit:300,400,500,500i,600%7CRoboto:400,900">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Kanit:300,400,500,500i,600%7CRoboto:400,900">
 
-  <link rel="stylesheet" href="/css/bootstrap.css">
-
-  <link rel="stylesheet" href="/css/fonts.css">
-
-  <link rel="stylesheet" href="/css/style.css">
+  <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
+  <link th:href="@{/css/fonts.css}" rel="stylesheet" />
+  <link th:href="@{/css/style.css}" rel="stylesheet" />
 
 </head>
 
 <body>
 
-<div class="ie-panel"><a href="https://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+<div class="ie-panel"><a href="https://windows.microsoft.com/en-US/internet-explorer/"><img src="/images/warning_bar_0000_us.jpg" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
 
 <div class="preloader">
 
@@ -109,9 +101,9 @@
 
                 </li>
 
-                <li><a class="badge badge-primary" href="/register">registration</a></li>
+                <li><a class="badge badge-primary" href="#">registration</a></li>
 
-                <li><a class="link link-icon link-icon-left link-classic" href="/login"><span class="icon fl-bigmug-line-login12"></span><span class="link-icon-text">Your Account</span></a></li>
+                <li><a class="link link-icon link-icon-left link-classic" href="login.html"><span class="icon fl-bigmug-line-login12"></span><span class="link-icon-text">Your Account</span></a></li>
 
               </ul>
 
@@ -133,7 +125,7 @@
 
               <div class="rd-navbar-brand">
 
-                <!-- Brand--><a class="brand" href="/"><img class="brand-logo-dark" src="images/logo-default-213x82.png" alt="" width="106" height="41"/><img class="brand-logo-light" src="images/logo-inverse-213x82.png" alt="" width="106" height="41"/></a>
+                <!-- Brand--><a class="brand" href="/"><img class="brand-logo-dark" src="/images/logo-default-213x82.png" alt="" width="106" height="41"/><img class="brand-logo-light" src="/images/logo-inverse-213x82.png" alt="" width="106" height="41"/></a>
 
               </div>
 
@@ -173,7 +165,7 @@
 
               <ul class="rd-navbar-nav">
 
-                <li class="rd-nav-item active"><a class="rd-nav-link" href="index.html">Sports</a>
+                <li class="rd-nav-item"><a class="rd-nav-link" href="index.html">Sports</a>
 
                 </li>
 
@@ -193,7 +185,7 @@
 
                 </li>
 
-                <li class="rd-nav-item"><a class="rd-nav-link" href="#">Pages</a>
+                <li class="rd-nav-item active"><a class="rd-nav-link" href="#">Pages</a>
 
                   <!-- RD Navbar Megamenu-->
 
@@ -283,7 +275,7 @@
 
                             <article class="post-classic">
 
-                              <div class="post-classic-aside"><a class="post-classic-figure" href="blog-post.html"><img src="images/megamenu-post-1-93x94.jpg" alt="" width="93" height="94"/></a></div>
+                              <div class="post-classic-aside"><a class="post-classic-figure" href="blog-post.html"><img src="../static/images/megamenu-post-1-93x94.jpg" alt="" width="93" height="94"/></a></div>
 
                               <div class="post-classic-main">
 
@@ -313,7 +305,7 @@
 
                             <article class="post-classic">
 
-                              <div class="post-classic-aside"><a class="post-classic-figure" href="blog-post.html"><img src="images/megamenu-post-2-93x94.jpg" alt="" width="93" height="94"/></a></div>
+                              <div class="post-classic-aside"><a class="post-classic-figure" href="blog-post.html"><img src="../static/images/megamenu-post-2-93x94.jpg" alt="" width="93" height="94"/></a></div>
 
                               <div class="post-classic-main">
 
@@ -343,7 +335,7 @@
 
                             <article class="post-classic">
 
-                              <div class="post-classic-aside"><a class="post-classic-figure" href="blog-post.html"><img src="images/megamenu-post-3-93x94.jpg" alt="" width="93" height="94"/></a></div>
+                              <div class="post-classic-aside"><a class="post-classic-figure" href="blog-post.html"><img src="../static/images/megamenu-post-3-93x94.jpg" alt="" width="93" height="94"/></a></div>
 
                               <div class="post-classic-main">
 
@@ -373,7 +365,7 @@
 
                             <article class="post-classic">
 
-                              <div class="post-classic-aside"><a class="post-classic-figure" href="blog-post.html"><img src="images/megamenu-post-4-93x94.jpg" alt="" width="93" height="94"/></a></div>
+                              <div class="post-classic-aside"><a class="post-classic-figure" href="blog-post.html"><img src="../static/images/megamenu-post-4-93x94.jpg" alt="" width="93" height="94"/></a></div>
 
                               <div class="post-classic-main">
 
@@ -423,7 +415,7 @@
 
                             <div class="unit unit-spacing-xs unit-horizontal align-items-center">
 
-                              <div class="unit-left"><img src="images/team-bavaria-fc-59x54.png" alt="" width="59" height="54"/>
+                              <div class="unit-left"><img src="../static/images/team-bavaria-fc-59x54.png" alt="" width="59" height="54"/>
 
                               </div>
 
@@ -445,7 +437,7 @@
 
                             <div class="unit unit-spacing-xs unit-horizontal align-items-center">
 
-                              <div class="unit-left"><img src="images/team-atletico-50x50.png" alt="" width="50" height="50"/>
+                              <div class="unit-left"><img src="/images/team-atletico-50x50.png" alt="" width="50" height="50"/>
 
                               </div>
 
@@ -517,146 +509,103 @@
 
 
 
-  <!-- Swiper-->
+  <!-- Section Breadcrumbs-->
 
-  <section class="section swiper-container swiper-slider swiper-classic bg-gray-2" data-loop="true" data-autoplay="4000" data-simulate-touch="false" data-slide-effect="fade">
+  <section class="section parallax-container breadcrumbs-wrap" data-parallax-img="images/bg-breadcrumbs-1-1920x726.jpg">
 
-    <div class="swiper-wrapper">
+    <div class="parallax-content breadcrumbs-custom context-dark">
 
-      <div class="swiper-slide" data-slide-bg="images/slider-1-slide-1-1920x671.jpg">
+      <div class="container">
 
-        <div class="container">
+        <h3 class="breadcrumbs-custom-title">Register | LuckGame</h3>
 
-          <div class="swiper-slide-caption">
+        <ul class="breadcrumbs-custom-path">
 
-            <h1 data-caption-animate="fadeInUp" data-caption-delay="100">Safe <br> Betting</h1>
+          <li><a href="/">Home</a></li>
 
-            <h4 data-caption-animate="fadeInUp" data-caption-delay="200">With 100% Risk-Free Guarantee</h4><a class="button button-gray-outline" data-caption-animate="fadeInUp" data-caption-delay="300" href="#">Get started</a>
+          <li class="active">Register</li>
 
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="swiper-slide" data-slide-bg="images/slider-1-slide-2-1920x671.jpg">
-
-        <div class="container">
-
-          <div class="swiper-slide-caption">
-
-            <h1 data-caption-animate="fadeInUp" data-caption-delay="100">Easy Bets</h1>
-
-            <h4 data-caption-animate="fadeInUp" data-caption-delay="200">With the lowest commissions</h4><a class="button button-gray-outline" data-caption-animate="fadeInUp" data-caption-delay="300" href="#">Join Us</a>
-
-          </div>
-
-        </div>
+        </ul>
 
       </div>
 
     </div>
 
-    <div class="swiper-button swiper-button-prev"></div>
-
-    <div class="swiper-button swiper-button-next"></div>
-
-    <div class="swiper-pagination"></div>
-
   </section>
 
 
 
-  <!-- All Sports-->
+  <!-- Section Login/register-->
 
-  <section class="section section-sm bg-gray-100">
+  <section class="section section-variant-1 bg-gray-100">
 
     <div class="container">
 
-      <div class="row isotope-wrap row-30">
+      <div class="row row-50 justify-content-center">
 
+        <div class="col-md-10 col-lg-8 col-xl-6">
 
+          <div class="card-login-register" id="card-l-r">
 
-        <!-- Isotope Content-->
+            <div class="card-top-panel">
 
-        <div class="col-lg-12">
+              <div class="card-top-panel-left">
 
-          <div class="row isotope row-30" data-isotope-layout="masonry" data-column-class=".col-1" data-isotope-group="gallery">
-
-            <div class="col-1 isotope-item isotope-sizer"></div>
-
-            <!-- Football-->
-
-            <div class="col-lg-12 isotope-item" data-filter="football">
-
-              <!-- Heading Component-->
-
-              <article class="heading-component">
-
-                <div class="heading-component-inner">
-
-                  <h5 class="heading-component-title">Football ([[${count}]])
-
-                  </h5>
-
-                  <div>
-
-                    <ul class="list-inline list-inline-xs">
-
-                      <li><a class="button button-xs button-red-outline active" href="#">Live</a></li>
-
-                    </ul>
-
-                  </div>
-
-                </div>
-
-              </article>
-
-
-
-              <div class="sport-table-header">
-
-                <p>National Championship ([[${count}]])</p>
+                <h5 class="card-title card-title">Register</h5>
 
               </div>
 
-              <!-- Loop Baslangic-->
-              <div class="sport-table" th:if="${not #lists.isEmpty(matches)}">
-                <div class="sport-table-tr" th:each="Matches : ${matches}">
-                  <div class="row sport-row align-items-center row-15">
-                    <div class="col-sm-1 col-md-1 col-lg-1">
-                      <div class="sport-table-icon">
-                        <div class="sprite sprite-sport-icon-07"></div>
-                      </div>
-                    </div>
-                    <div class="col-sm-9 col-md-4 col-lg-3" >
-                      <div class="sport-table-title">
-                        <div class="sport-table-title-item sport-table-title-item-left">
-                          <span class="sport-table-title-team" th:text="${Matches.homeTeam}"></span>
-                          <span class="sport-table-title-team" th:text="${Matches.awayTeam}"></span></div>
-                      </div>
-                    </div>
-                    <div class="col-sm-10 col-md-6 col-lg-7">
-                      <div class="sport-table-wager">
-                        <a class="sport-table-wager-button" href="#" data-toggle="modal" data-target="#sportModal" data-team-name="[[${homeTeam}]]" data-confrontation="[[${homeTeam}]] vs [[${awayTeam}]]" data-wager-count="1.23"><span th:text="${Matches.homeTeam}">[[${homeTeam}]]</span><span class="sport-table-wager-button-count" th:text="${Matches.homeTeamRate}"></span></a>
-                        <a class="sport-table-wager-button" href="#" data-toggle="modal" data-target="#sportModal" data-team-name="Draw" data-confrontation="[[${homeTeam}]] vs. [[${awayTeam}]]" data-wager-count="13.00" data-score="4:2"><span>Draw</span><span class="sport-table-wager-button-count" th:text="${Matches.drawRate}"></span></a>
-                        <a class="sport-table-wager-button" href="#" data-toggle="modal" data-target="#sportModal" data-team-name="[[${awayTeam}]]" data-confrontation="R[[${homeTeam}]] vs [[${awayTeam}]]" data-wager-count="34.25"><span th:text="${Matches.awayTeam}">[[${awayTeam}]]</span><span class="sport-table-wager-button-count" th:text="${Matches.awayTeamRate}"></span></a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <form class="button-link" method="get" th:action="@{/login}">
+                <button class="btn btn-primary btn-block" type="button" onclick="window.location.href='/login'">Login</button>
+              </form>
+
             </div>
+
+              <div class="card-form">
+
+                <form class="rd-form rd-mailform" th:action="@{/register}" th:object="${registerUser}" th:method="POST">
+
+                  <div class="form-wrap">
+
+                    <label class="form-label" for="email"></label>
+
+                    <input class="form-input" id="email" type="text" placeholder="E-mail" th:field="*{email}" data-constraints="@Required">
+
+                  </div>
+
+                  <div class="form-wrap">
+
+                    <label class="form-label" for="username-register"></label>
+
+                    <input class="form-input" id="username-register" type="text" name="form-input" placeholder="Username" th:field="*{username}" data-constraints="@Required">
+
+                  </div>
+
+                  <div class="form-wrap">
+
+                    <label class="form-label" for="form-login-password-2"></label>
+
+                    <input class="form-input" id="form-login-password-2" type="password" name="password" placeholder="Password" th:field="*{password}" data-constraints="@Required">
+
+                  </div>
+                  <button class="button button-lg button-primary button-block" type="submit" onclick="window.location.href='/login'">Create new account</button>
+
+                </form>
+
+                <div class="group-sm group-sm-justify group-middle"><a class="button button-google button-icon button-icon-left button-round" href="#"><span class="icon fa fa-google-plus"></span><span>Google+</span></a><a class="button button-twitter button-icon button-icon-left button-round" href="#"><span class="icon fa fa-twitter"></span><span>Twitter</span></a><a class="button button-facebook button-icon button-icon-left button-round" href="#"><span class="icon fa fa-facebook"></span><span>Facebook</span></a></div>
+
+              </div>
+
+            </form>
           </div>
+
         </div>
+
       </div>
+
     </div>
-              <!-- Loop Bitis-->
+
   </section>
-
-  <!-- Latest News-->
-
 
 
 
@@ -704,7 +653,7 @@
 
                 <div class="unit-left">
 
-                  <!-- Brand--><a class="brand" href="/"><img class="brand-logo-dark" src="/images/logo-default-213x82.png" alt="" width="106" height="41"/><img class="brand-logo-light" src="/images/logo-inverse-213x82.png" alt="" width="106" height="41"/></a>
+                  <!-- Brand--><a class="brand" href="index.html"><img class="brand-logo-dark" src="../static/images/logo-default-213x82.png" alt="" width="106" height="41"/><img class="brand-logo-light" src="../static/images/logo-inverse-213x82.png" alt="" width="106" height="41"/></a>
 
                 </div>
 
@@ -816,7 +765,7 @@
 
                 <article class="post-classic">
 
-                  <div class="post-classic-aside"><a class="post-classic-figure" href="blog-post.html"><img src="/images/footer-soccer-post-1-93x87.jpg" alt="" width="93" height="87"/></a></div>
+                  <div class="post-classic-aside"><a class="post-classic-figure" href="blog-post.html"><img src="../static/images/footer-soccer-post-1-93x87.jpg" alt="" width="93" height="87"/></a></div>
 
                   <div class="post-classic-main">
 
@@ -846,7 +795,7 @@
 
                 <article class="post-classic">
 
-                  <div class="post-classic-aside"><a class="post-classic-figure" href="blog-post.html"><img src="/images/footer-soccer-post-2-93x87.jpg" alt="" width="93" height="87"/></a></div>
+                  <div class="post-classic-aside"><a class="post-classic-figure" href="blog-post.html"><img src="../static/images/footer-soccer-post-2-93x87.jpg" alt="" width="93" height="87"/></a></div>
 
                   <div class="post-classic-main">
 
@@ -876,7 +825,7 @@
 
                 <article class="post-classic">
 
-                  <div class="post-classic-aside"><a class="post-classic-figure" href="blog-post.html"><img src="/images/footer-soccer-post-3-93x87.jpg" alt="" width="93" height="87"/></a></div>
+                  <div class="post-classic-aside"><a class="post-classic-figure" href="blog-post.html"><img src="../static/images/footer-soccer-post-3-93x87.jpg" alt="" width="93" height="87"/></a></div>
 
                   <div class="post-classic-main">
 
@@ -906,7 +855,7 @@
 
                 <article class="post-classic">
 
-                  <div class="post-classic-aside"><a class="post-classic-figure" href="blog-post.html"><img src="/images/footer-soccer-post-4-93x87.jpg" alt="" width="93" height="87"/></a></div>
+                  <div class="post-classic-aside"><a class="post-classic-figure" href="blog-post.html"><img src="../static/images/footer-soccer-post-4-93x87.jpg" alt="" width="93" height="87"/></a></div>
 
                   <div class="post-classic-main">
 
@@ -954,7 +903,7 @@
 
             <ul class="nav-minimal-list">
 
-              <li class="active"><a href="index.html">Sports</a></li>
+              <li><a href="index.html">Sports</a></li>
 
               <li><a href="in-play.html">In-play</a></li>
 
@@ -962,7 +911,7 @@
 
               <li><a href="statistics.html">Statistics</a></li>
 
-              <li><a href="#">Pages</a></li>
+              <li class="active"><a href="#">Pages</a></li>
 
             </ul>
 
@@ -976,58 +925,6 @@
 
   </footer>
 
-  <div class="modal modal-sport fade" id="sportModal" tabindex="-1" role="dialog" aria-labelledby="sportModalTitle" aria-hidden="true">
-
-    <div class="modal-dialog modal-dialog-centered" role="document">
-
-      <div class="modal-content">
-
-        <div class="modal-header">
-
-          <h5 class="modal-title" id="sportModalTitle">Placing a bet</h5>
-
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span class="mdi mdi-close" aria-hidden="true"></span></button>
-
-        </div>
-
-        <div class="modal-body">
-
-          <p class="modal-sport-wager-title"><span class="modal-sport-wager"></span> <span class="modal-sport-wager-count"></span>
-
-          </p>
-
-          <p class="modal-sport-confrontation"></p>
-
-          <p class="modal-sport-live"><span class="modal-sport-live-count"></span> <span>1X2 Live Betting</span>
-
-          </p>
-
-          <div class="stepper-sport">
-
-            <input class="form-input" type="number" data-zeros="true" value="0" min="0" max="100">
-
-          </div>
-
-        </div>
-
-        <div class="modal-footer">
-
-          <p class="modal-sport-bets"><span class="modal-sport-bets-left">Number of bets</span><span class="modal-sport-bets-right"></span></p>
-
-          <p class="modal-sport-stake"><span class="modal-sport-stake-left">Stake</span><span class="modal-sport-stake-right">4</span></p>
-
-          <p class="modal-sport-win"><span class="modal-sport-win-left">Winnings</span><span class="modal-sport-win-right">24</span></p>
-
-          <button class="modal-sport-place button button-primary button-block" type="button" data-dismiss="modal">place bet</button>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
 </div>
 
 <!-- Global Mailform Output-->
@@ -1036,11 +933,10 @@
 
 <!-- Javascript-->
 
-<script src="/js/core.min.js"></script>
+<script th:src="@{/js/core.min.js}"></script>
 
-<script src="/js/script.js"></script>
+<script th:src="@{/js/script.js}"></script>
 
-</body>
-</html>
-</body>
+<!-- Google Tag Manager --><noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-P9FT69" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-P9FT69');</script><!-- End Google Tag Manager --></body>
+
 </html>

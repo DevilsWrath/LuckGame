@@ -5,12 +5,9 @@ import com.luckgame.demo.security.PasswordConfig;
 import com.luckgame.demo.user.AppUser;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -48,11 +45,6 @@ public class MyUserDetails implements UserDetails {
                     .map(role -> new SimpleGrantedAuthority("ROLE_" +role.getName()))
                     .collect(Collectors.toList());
     }
-
-    public boolean hasRole(String roleName) {
-        return this.user.hasRole(roleName);
-    }
-
     @Autowired
     private AppUser user;
 

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
-      xmlns:method="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <html class="wide wow-animation" lang="en">
 
 <head>
@@ -101,9 +100,7 @@
 
                                 </li>
 
-                                <li><a class="badge badge-primary" href="#">registration</a></li>
-
-                                <li><a class="link link-icon link-icon-left link-classic" href="login.html"><span class="icon fl-bigmug-line-login12"></span><span class="link-icon-text">Your Account</span></a></li>
+                                <li><a class="link link-icon link-icon-left link-classic" href="/login"><span class="icon fl-bigmug-line-login12"></span><span class="link-icon-text">Your Account</span></a></li>
 
                             </ul>
 
@@ -125,7 +122,7 @@
 
                             <div class="rd-navbar-brand">
 
-                                <!-- Brand--><a class="brand" href="index.html"><img class="brand-logo-dark" src="/images/logo-default-213x82.png" alt="" width="106" height="41"/><img class="brand-logo-light" src="/images/logo-inverse-213x82.png" alt="" width="106" height="41"/></a>
+                                <!-- Brand--><a class="brand" href="/"><img class="brand-logo-dark" src="/images/logo-default-213x82.png" alt="" width="106" height="41"/><img class="brand-logo-light" src="/images/logo-inverse-213x82.png" alt="" width="106" height="41"/></a>
 
                             </div>
 
@@ -517,15 +514,15 @@
 
             <div class="container">
 
-                <h3 class="breadcrumbs-custom-title">Transactions Page</h3>
+                <h3 class="breadcrumbs-custom-title">Enter the transaction details</h3>
 
                 <ul class="breadcrumbs-custom-path">
 
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="/">Home</a></li>
 
-                    <li><a href="#">Pages</a></li>
+                    <li><a href="/matches">Matches</a></li>
 
-                    <li class="active">Transactions Page</li>
+                    <li class="active">Transactions</li>
 
                 </ul>
 
@@ -536,31 +533,19 @@
     </section>
 
     <body>
-        <h1>
-            Enter the transaction details
-        </h1>
+    <form th:action="@{/transactions}" th:object="${transaction}" th:method="post">
 
-    <form th:action="@{matches}" th:object="${Transaction}" th:method="post">
-
-        <label for="amount">Amount</label>
-        <input type="number" name="amount" id="amount" placeholder="Amount" th:field = "*{amount}">
+        <label for="amount"></label>
+        <input type="number" name="amount" id="amount" placeholder="Amount" th:field = "*{amount}" style="width: 250px;"><br>
         <label for="isDeposit">Type</label>
-        <select name="type" id="isDeposit" th:field="*{isDeposit}">
+        <select name="type" id="isDeposit" th:field="*{isDeposit}" style="width: 250px;">
             <option value="true">Deposit</option>
             <option value="false">Withdraw</option>
         </select>
-            <input type = "submit" value="Submit" >
+            <input type = "submit" value="Submit" class="btn btn-primary btn-block">
 
     </form>
-    </form>
     </body>
-</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 </div>
 <script th:src="@{/js/core.min.js}"></script>
 

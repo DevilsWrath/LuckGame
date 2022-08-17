@@ -1,5 +1,6 @@
 package com.luckgame.demo.service;
 
+import com.luckgame.demo.bet.Bet;
 import com.luckgame.demo.matches.Match;
 import com.luckgame.demo.repo.MatchRepo;
 import lombok.RequiredArgsConstructor;
@@ -7,9 +8,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -18,6 +19,8 @@ import java.util.Optional;
 public class MatchServiceImpl implements MatchService {
 
     private final MatchRepo matchRepo;
+
+    private final BetServiceImpl betService;
 
     @Override
     public Match saveMatch(Match match) {
@@ -30,20 +33,19 @@ public class MatchServiceImpl implements MatchService {
     }
 
     @Override
-    public List<Match> getMatches() {
+    public List<Match> getMatches() throws ParseException {
         List<Match> matches = new ArrayList<>();
-        matchRepo.findAll().forEach(matches::add);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        Date currentDate = sdf.parse(sdf.format(new Date()));
+        for (Match match:matchRepo.findAll()) {
 
-        return matches;
-    }
+            Date date = sdf.parse(match.getMatchDate());
+            if (date.after(currentDate) && !match.isResulted()) {
+                matches.add(match);
+            }
 
-    public void addNewMatch(Match match){
-        Optional<Match> matchOptional = matchRepo.findMatchByMatchId(match.getMatchId());
-        if(matchOptional.isPresent()){
-            throw new IllegalStateException("Match with matchId " + match.getMatchId() + " already exists");
-        }else {
-            matchRepo.save(match);
         }
+        return matches;
     }
 }
 

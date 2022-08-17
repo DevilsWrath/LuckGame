@@ -11,21 +11,23 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class TransactionController {
 
-    @GetMapping("/transactions")
-    public String getTransaction(Model model) {
-       model.addAttribute("Transaction", new Transaction());
-
-        return "transactions";
-    }
-
     private TransactionServiceImpl transactionService;
     public TransactionController(TransactionServiceImpl transactionService) {
         this.transactionService = transactionService;
     }
 
+
+    @GetMapping("/transactions")
+    public String getTransaction(Model model) {
+       model.addAttribute("transaction", new Transaction());
+
+        return "transactions";
+    }
+
+
     @PostMapping(value = "/transactions")
     public String addTransaction(@ModelAttribute Transaction transaction) {
         transactionService.addTransaction(transaction);
-        return "matches";
+        return "redirect:/matches";
     }
 }

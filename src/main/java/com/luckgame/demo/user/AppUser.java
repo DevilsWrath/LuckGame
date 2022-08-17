@@ -8,13 +8,15 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
+import static javax.persistence.GenerationType.AUTO;
+
 @Entity
 @Table
 @NoArgsConstructor
 @AllArgsConstructor
 public class AppUser {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = AUTO)
     private Long ID;
     private String username;
     private String password;
@@ -68,6 +70,10 @@ public class AppUser {
         return ID;
     }
 
+    public void setID(Long ID) {
+        this.ID = ID;
+    }
+
     public String getUsername() {
         return username;
     }
@@ -86,6 +92,10 @@ public class AppUser {
 
     public String getEmail() {
         return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Float getBalance() {

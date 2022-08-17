@@ -21,7 +21,7 @@ public class Bet {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
-    private AppUser userID;
+    private AppUser user;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "match_id")
@@ -30,18 +30,35 @@ public class Bet {
     private Float amount;
 
     private BetTypes betType;
-    private BetTypes betResult;
+
+    private BetTypes betResult = BetTypes.NONE;
+
+    private Results results = Results.NONE;
+
+    private Float winAmount;
+
+    public Float getWinAmount() {
+        return winAmount;
+    }
+
+    public void setWinAmount(Float winAmount) {
+        this.winAmount = winAmount;
+    }
+
+    public Results getResults() {
+        return results;
+    }
+
+    public void setResults(Results results) {
+        this.results = results;
+    }
 
     public Long getBetId() {
         return betId;
     }
 
-    public void setBetId(Long betId) {
-        this.betId = betId;
-    }
-
-    public AppUser getUserID() {
-        return userID;
+    public AppUser getUser() {
+        return user;
     }
 
     public Match getMatchID() {
@@ -72,8 +89,8 @@ public class Bet {
         this.betResult = betResult;
     }
 
-    public void setUserID(AppUser userID) {
-        this.userID = userID;
+    public void setUser(AppUser user) {
+        this.user = user;
     }
 
     public void setMatchID(Match matchID) {
@@ -81,11 +98,15 @@ public class Bet {
     }
 
     public Bet(AppUser appUser, Match matchID, Float amount, BetTypes betType, Long betId) {
-        this.userID = appUser;
+        this.user = appUser;
         this.amount = amount;
         this.betType = betType;
         this.betId = betId;
         this.matchID = matchID;
 
     }
+    public Bet(Match matchID){
+        this.matchID = matchID;
+    }
+
 }

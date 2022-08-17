@@ -1,0 +1,47 @@
+<div class="container">
+    <p>
+        [[${adminWelcome}]]
+    </p>
+    <h5>[[${systemBalance}]]</h5>
+    <div th:if="${message}" class="alert alert-success text-center">
+        [[${message}]]
+    </div>
+    <form class="form-signin" method="get" action="/logout">
+        <button class="btn btn-primary btn-block" type="submit">Logout</button>
+    </form>
+    <form class="form-addMatch" method="get" th:action="@{/admin/addMatch}">
+        <button class="btn btn-primary btn-block" type="button" onclick="window.location.href='/admin/addMatch'">Add a new match</button>
+    </form>
+    <form class="form-add_result" method="get" th:action="@{/admin/result}">
+        <button class="btn btn-primary btn-block" type="button" onclick="window.location.href='/admin/result'">Add a result</button>
+    </form>
+</div>
+
+
+
+<div class="sport-table" th:if="${not #lists.isEmpty(betList)}">
+    <div class="sport-table-tr" th:each="bet : ${betList}">
+        <div class="row sport-row align-items-center row-15">
+            <div class="col-sm-1 col-md-1 col-lg-1">
+                <div class="sport-table-icon">
+                    <div class="sprite sprite-sport-icon-07"></div>
+                </div>
+            </div>
+            <div class="col-sm-9 col-md-4 col-lg-3" >
+                <div class="sport-table-title">
+                    <div class="sport-table-title-item sport-table-title-item-left">
+                        <span class="sport-table-title-team" th:text="${bet.matchID.homeTeam}"></span>
+                        <span class="sport-table-title-team" th:text="${bet.matchID.awayTeam}"></span></div>
+                </div>
+            </div>
+            <div class="col-sm-10 col-md-6 col-lg-7">
+                <div class="sport-table-wager">
+                    <a class="sport-table-wager-button"><span th:if = "${bet.betType == 'HOME'}" th:text="${bet.matchID.homeTeam}">[[${homeTeam}]]</span><span class="sport-table-wager-button-count" th:text="${bet.matchID.homeTeamRate}"></span></a>
+                    <a class="sport-table-wager-button"><span th:if = "${bet.betType == 'DRAW'}" >Draw</span><span class="sport-table-wager-button-count" th:text="${bet.matchID.drawRate}"></span></a>
+                    <a class="sport-table-wager-button"><span th:if = "${bet.betType == 'AWAY'}" th:text="${bet.matchID.awayTeam}">[[${awayTeam}]]</span><span class="sport-table-wager-button-count" th:text="${bet.matchID.awayTeamRate}"></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

@@ -13,7 +13,7 @@
 
   <!-- Site Title-->
 
-  <title>Welcome to LuckGame</title>
+  <title>Add a Result</title>
 
   <meta name="format-detection" content="telephone=no">
 
@@ -23,23 +23,22 @@
 
   <meta charset="utf-8">
 
-  <link rel="icon" href="/images/favicon.png" type="image/x-icon">
+  <script src="/js/3ts2ksMwXvKRuG480KNifJ2_JNM.js"></script>
 
   <!-- Stylesheets-->
 
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Kanit:300,400,500,500i,600%7CRoboto:400,900">
 
-  <link rel="stylesheet" href="/css/bootstrap.css">
-
-  <link rel="stylesheet" href="/css/fonts.css">
-
-  <link rel="stylesheet" href="/css/style.css">
+  <link href="/css/bootstrap.css" rel="stylesheet" />
+  <link href="/css/fonts.css" rel="stylesheet" />
+  <link href="/css/style.css" rel="stylesheet" />
 
 </head>
 
+
 <body>
 
-<div class="ie-panel"><a href="https://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+<div class="ie-panel"><a href="https://windows.microsoft.com/en-US/internet-explorer/"><img src="/images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
 
 <div class="preloader">
 
@@ -93,25 +92,7 @@
 
               <ul class="list-inline list-inline-bordered">
 
-                <li>
-
-                  <!-- Select 2-->
-
-                  <select class="select select-inline select-inline-dark" data-placeholder="Select an option" data-dropdown-class="select-inline-dropdown select-inline-dropdown-secondary">
-
-                    <option value="en" selected="">en</option>
-
-                    <option value="fr">fr</option>
-
-                    <option value="es">es</option>
-
-                  </select>
-
-                </li>
-
-                <li><a class="badge badge-primary" href="/register">registration</a></li>
-
-                <li><a class="link link-icon link-icon-left link-classic" href="/login"><span class="icon fl-bigmug-line-login12"></span><span class="link-icon-text">Your Account</span></a></li>
+                <li><a class="badge badge-primary" href="/logout">Logout</a></li>
 
               </ul>
 
@@ -133,7 +114,7 @@
 
               <div class="rd-navbar-brand">
 
-                <!-- Brand--><a class="brand" href="/"><img class="brand-logo-dark" src="images/logo-default-213x82.png" alt="" width="106" height="41"/><img class="brand-logo-light" src="images/logo-inverse-213x82.png" alt="" width="106" height="41"/></a>
+                <!-- Brand--><a class="brand" href="/"><img class="brand-logo-dark" src="/images/logo-default-213x82.png" alt="" width="106" height="41"/><img class="brand-logo-light" src="/images/logo-inverse-213x82.png" alt="" width="106" height="41"/></a>
 
               </div>
 
@@ -173,319 +154,15 @@
 
               <ul class="rd-navbar-nav">
 
-                <li class="rd-nav-item active"><a class="rd-nav-link" href="index.html">Sports</a>
+                <li class="rd-nav-item" th:action="@{/admin/addMatch}"><a class="rd-nav-link" href="/admin/addMatch">Add A Match</a>
 
                 </li>
 
-                <li class="rd-nav-item"><a class="rd-nav-link" href="in-play.html">In-Play</a>
+                <li class="rd-nav-item" th:action="@{/admin}"><a class="rd-nav-link" href="/admin">Admin Dashboard</a>
 
                 </li>
-
-                <li class="rd-nav-item"><a class="rd-nav-link" href="promotions.html">Promotions</a>
-
-                </li>
-
-                <li class="rd-nav-item"><a class="rd-nav-link" href="statistics.html">Statistics</a>
-
-                </li>
-
-                <li class="rd-nav-item"><a class="rd-nav-link" href="results.html">Results</a>
-
-                </li>
-
-                <li class="rd-nav-item"><a class="rd-nav-link" href="#">Pages</a>
-
-                  <!-- RD Navbar Megamenu-->
-
-                  <article class="rd-menu rd-navbar-megamenu rd-megamenu-2-columns context-light">
-
-                    <div class="rd-megamenu-main">
-
-                      <div class="rd-megamenu-item rd-megamenu-item-nav">
-
-                        <!-- Heading Component-->
-
-                        <article class="heading-component heading-component-simple">
-
-                          <div class="heading-component-inner">
-
-                            <h5 class="heading-component-title">Elements
-
-                            </h5>
-
-                          </div>
-
-                        </article>
-
-
-
-                        <div class="rd-megamenu-list-outer">
-
-                          <ul class="rd-megamenu-list">
-
-                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="shortcodes.html">Shortcodes</a></li>
-
-                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="typography.html">Typography</a></li>
-
-                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="404-page.html">404 Page</a></li>
-
-                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="coming-soon.html">Coming Soon</a></li>
-
-                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="login-page.html">Login Page</a></li>
-
-                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="team-overview.html">Team Overview</a></li>
-
-                          </ul>
-
-                          <ul class="rd-megamenu-list">
-
-                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="schedule.html">Schedule</a></li>
-
-                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="news.html">News</a></li>
-
-                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="blog-post.html">Blog post</a></li>
-
-                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="gallery.html">Gallery</a></li>
-
-                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="latest-game-results.html">Latest game results</a></li>
-
-                            <li class="rd-megamenu-list-item"><a class="rd-megamenu-list-link" href="standings.html">Standings</a></li>
-
-                          </ul>
-
-                        </div>
-
-                      </div>
-
-                      <div class="rd-megamenu-item rd-megamenu-item-content">
-
-                        <!-- Heading Component-->
-
-                        <article class="heading-component heading-component-simple">
-
-                          <div class="heading-component-inner">
-
-                            <h5 class="heading-component-title">Latest News
-
-                            </h5><a class="button button-xs button-gray-outline" href="news.html">See all News</a>
-
-                          </div>
-
-                        </article>
-
-
-
-                        <div class="row row-20">
-
-                          <div class="col-lg-6">
-
-                            <!-- Post Classic-->
-
-                            <article class="post-classic">
-
-                              <div class="post-classic-aside"><a class="post-classic-figure" href="blog-post.html"><img src="images/megamenu-post-1-93x94.jpg" alt="" width="93" height="94"/></a></div>
-
-                              <div class="post-classic-main">
-
-                                <!-- Badge-->
-
-                                <div class="badge badge-secondary">Sports
-
-                                </div>
-
-                                <p class="post-classic-title"><a href="blog-post.html">Prem in 90 seconds: Chelsea's crisis is over!</a></p>
-
-                                <div class="post-classic-time"><span class="icon mdi mdi-clock"></span>
-
-                                  <time datetime="2020">April 15, 2020</time>
-
-                                </div>
-
-                              </div>
-
-                            </article>
-
-                          </div>
-
-                          <div class="col-lg-6">
-
-                            <!-- Post Classic-->
-
-                            <article class="post-classic">
-
-                              <div class="post-classic-aside"><a class="post-classic-figure" href="blog-post.html"><img src="images/megamenu-post-2-93x94.jpg" alt="" width="93" height="94"/></a></div>
-
-                              <div class="post-classic-main">
-
-                                <!-- Badge-->
-
-                                <div class="badge badge-primary">News
-
-                                </div>
-
-                                <p class="post-classic-title"><a href="blog-post.html">Raptors GM excited about Monroe signing</a></p>
-
-                                <div class="post-classic-time"><span class="icon mdi mdi-clock"></span>
-
-                                  <time datetime="2020">April 15, 2020</time>
-
-                                </div>
-
-                              </div>
-
-                            </article>
-
-                          </div>
-
-                          <div class="col-lg-6">
-
-                            <!-- Post Classic-->
-
-                            <article class="post-classic">
-
-                              <div class="post-classic-aside"><a class="post-classic-figure" href="blog-post.html"><img src="images/megamenu-post-3-93x94.jpg" alt="" width="93" height="94"/></a></div>
-
-                              <div class="post-classic-main">
-
-                                <!-- Badge-->
-
-                                <div class="badge badge-primary">News
-
-                                </div>
-
-                                <p class="post-classic-title"><a href="blog-post.html">Lester regains form with 6 scoreless, 8 K’s</a></p>
-
-                                <div class="post-classic-time"><span class="icon mdi mdi-clock"></span>
-
-                                  <time datetime="2020">April 15, 2020</time>
-
-                                </div>
-
-                              </div>
-
-                            </article>
-
-                          </div>
-
-                          <div class="col-lg-6">
-
-                            <!-- Post Classic-->
-
-                            <article class="post-classic">
-
-                              <div class="post-classic-aside"><a class="post-classic-figure" href="blog-post.html"><img src="images/megamenu-post-4-93x94.jpg" alt="" width="93" height="94"/></a></div>
-
-                              <div class="post-classic-main">
-
-                                <!-- Badge-->
-
-                                <div class="badge badge-primary">News
-
-                                </div>
-
-                                <p class="post-classic-title"><a href="blog-post.html">Next gen stars making a surge in the new season</a></p>
-
-                                <div class="post-classic-time"><span class="icon mdi mdi-clock"></span>
-
-                                  <time datetime="2020">April 15, 2020</time>
-
-                                </div>
-
-                              </div>
-
-                            </article>
-
-                          </div>
-
-                        </div>
-
-                      </div>
-
-                    </div>
-
-                    <!-- Event Teaser-->
-
-                    <article class="event-teaser rd-megamenu-footer">
-
-                      <div class="event-teaser-header">
-
-                        <div class="event-teaser-caption">
-
-                          <h5 class="event-teaser-title">European League 2020</h5>
-
-                          <time class="event-teaser-time" datetime="2020">Saturday, April 14, 2020</time>
-
-                        </div>
-
-                        <div class="event-teaser-teams">
-
-                          <div class="event-teaser-team">
-
-                            <div class="unit unit-spacing-xs unit-horizontal align-items-center">
-
-                              <div class="unit-left"><img src="images/team-bavaria-fc-59x54.png" alt="" width="59" height="54"/>
-
-                              </div>
-
-                              <div class="unit-body">
-
-                                <p class="heading-7">Bavaria</p>
-
-                                <p class="text-style-1">Germany</p>
-
-                              </div>
-
-                            </div>
-
-                          </div>
-
-                          <div class="event-teaser-team-divider"><span class="event-teaser-team-divider-text">VS</span></div>
-
-                          <div class="event-teaser-team">
-
-                            <div class="unit unit-spacing-xs unit-horizontal align-items-center">
-
-                              <div class="unit-left"><img src="images/team-atletico-50x50.png" alt="" width="50" height="50"/>
-
-                              </div>
-
-                              <div class="unit-body">
-
-                                <p class="heading-7">Atletico</p>
-
-                                <p class="text-style-1">USA</p>
-
-                              </div>
-
-                            </div>
-
-                          </div>
-
-                        </div>
-
-                      </div>
-
-                      <div class="event-teaser-countdown event-teaser-highlighted">
-
-                        <!-- Countdown-->
-
-                        <div class="countdown countdown-classic" data-type="until" data-time="31 Dec 2020 16:00" data-format="dhms" data-style="short"></div>
-
-                      </div>
-
-                      <div class="event-teaser-aside"><a class="event-teaser-link" href="#">Place a Bet</a></div>
-
-                    </article>
-
-                  </article>
-
-                </li>
-
-                <li class="rd-nav-item"><a class="rd-nav-link" href="contact-us.html">Contact us</a>
-
-                </li>
-
               </ul>
+
 
               <div class="rd-navbar-main-element">
 
@@ -516,54 +193,31 @@
   </header>
 
 
+  <section class="section parallax-container breadcrumbs-wrap" data-parallax-img="images/bg-breadcrumbs-1-1920x726.jpg">
 
-  <!-- Swiper-->
+    <div class="parallax-content breadcrumbs-custom context-dark">
 
-  <section class="section swiper-container swiper-slider swiper-classic bg-gray-2" data-loop="true" data-autoplay="4000" data-simulate-touch="false" data-slide-effect="fade">
+      <div class="container">
 
-    <div class="swiper-wrapper">
+        <h3 class="breadcrumbs-custom-title">Add A Result</h3>
 
-      <div class="swiper-slide" data-slide-bg="images/slider-1-slide-1-1920x671.jpg">
+        <ul class="breadcrumbs-custom-path">
 
-        <div class="container">
+          <li><a href="/">Home</a></li>
 
-          <div class="swiper-slide-caption">
+          <li><a href="/admin">Admin</a></li>
 
-            <h1 data-caption-animate="fadeInUp" data-caption-delay="100">Safe <br> Betting</h1>
+          <li class="active">addResult</li>
 
-            <h4 data-caption-animate="fadeInUp" data-caption-delay="200">With 100% Risk-Free Guarantee</h4><a class="button button-gray-outline" data-caption-animate="fadeInUp" data-caption-delay="300" href="#">Get started</a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="swiper-slide" data-slide-bg="images/slider-1-slide-2-1920x671.jpg">
-
-        <div class="container">
-
-          <div class="swiper-slide-caption">
-
-            <h1 data-caption-animate="fadeInUp" data-caption-delay="100">Easy Bets</h1>
-
-            <h4 data-caption-animate="fadeInUp" data-caption-delay="200">With the lowest commissions</h4><a class="button button-gray-outline" data-caption-animate="fadeInUp" data-caption-delay="300" href="#">Join Us</a>
-
-          </div>
-
-        </div>
+        </ul>
 
       </div>
 
     </div>
 
-    <div class="swiper-button swiper-button-prev"></div>
-
-    <div class="swiper-button swiper-button-next"></div>
-
-    <div class="swiper-pagination"></div>
-
   </section>
+
+
 
 
 
@@ -595,7 +249,7 @@
 
                 <div class="heading-component-inner">
 
-                  <h5 class="heading-component-title">Football ([[${count}]])
+                  <h5 class="heading-component-title">Submit A Result
 
                   </h5>
 
@@ -617,7 +271,7 @@
 
               <div class="sport-table-header">
 
-                <p>National Championship ([[${count}]])</p>
+                <p>National Championship</p>
 
               </div>
 
@@ -639,20 +293,23 @@
                     </div>
                     <div class="col-sm-10 col-md-6 col-lg-7">
                       <div class="sport-table-wager">
-                        <a class="sport-table-wager-button" href="#" data-toggle="modal" data-target="#sportModal" data-team-name="[[${homeTeam}]]" data-confrontation="[[${homeTeam}]] vs [[${awayTeam}]]" data-wager-count="1.23"><span th:text="${Matches.homeTeam}">[[${homeTeam}]]</span><span class="sport-table-wager-button-count" th:text="${Matches.homeTeamRate}"></span></a>
-                        <a class="sport-table-wager-button" href="#" data-toggle="modal" data-target="#sportModal" data-team-name="Draw" data-confrontation="[[${homeTeam}]] vs. [[${awayTeam}]]" data-wager-count="13.00" data-score="4:2"><span>Draw</span><span class="sport-table-wager-button-count" th:text="${Matches.drawRate}"></span></a>
-                        <a class="sport-table-wager-button" href="#" data-toggle="modal" data-target="#sportModal" data-team-name="[[${awayTeam}]]" data-confrontation="R[[${homeTeam}]] vs [[${awayTeam}]]" data-wager-count="34.25"><span th:text="${Matches.awayTeam}">[[${awayTeam}]]</span><span class="sport-table-wager-button-count" th:text="${Matches.awayTeamRate}"></span></a>
+                        <a class="sport-table-wager-button"><span th:text="${Matches.homeTeam}">[[${homeTeam}]]</span><span class="sport-table-wager-button-count" th:text="${Matches.homeTeamRate}"></span></a>
+                        <a class="sport-table-wager-button"><span>Draw</span><span class="sport-table-wager-button-count" th:text="${Matches.drawRate}"></span></a>
+                        <a class="sport-table-wager-button"><span th:text="${Matches.awayTeam}">[[${awayTeam}]]</span><span class="sport-table-wager-button-count" th:text="${Matches.awayTeamRate}"></span></a>
                       </div>
+                    </div>
+                    <div class="col-sm-2 col-md-1 col-lg-1">
+                      <div class="sport-table-bonus"><span class="sport-table-bonus-count"><a th:href="@{'/admin/result/' + ${Matches.matchId}}">Result</a></span><span class="sport-table-bonus-icon material-icons-chevron_right"></span></div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              </div></div>
+            <!-- Loop Bitis-->
           </div>
         </div>
       </div>
     </div>
-              <!-- Loop Bitis-->
+
   </section>
 
   <!-- Latest News-->
@@ -949,24 +606,6 @@
           <!-- Rights-->
 
           <p class="rights"><span>S-Bet</span><span>&nbsp;&copy;&nbsp;</span><span class="copyright-year"></span><span>.&nbsp;</span><a class="link-underline" href="privacy-policy.html">Privacy Policy</a></p>
-
-          <nav class="nav-minimal">
-
-            <ul class="nav-minimal-list">
-
-              <li class="active"><a href="index.html">Sports</a></li>
-
-              <li><a href="in-play.html">In-play</a></li>
-
-              <li><a href="promotions.html">Promotions</a></li>
-
-              <li><a href="statistics.html">Statistics</a></li>
-
-              <li><a href="#">Pages</a></li>
-
-            </ul>
-
-          </nav>
 
         </div>
 

@@ -6,11 +6,8 @@ import com.luckgame.demo.user.AppUser;
 import java.util.List;
 
 public interface UserService {
-    AppUser saveCustomer(AppUser customer);
-   // Role saveRole(Role role);
-   // void addRoleToUser(String username, String roleName);
-    AppUser getCustomer(String username);
-    List<AppUser> getCustomers();
-    void setCustomerBalance(AppUser customer);
+
+    public void addNewCustomer(AppUser user);
+
 
 }
