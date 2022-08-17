@@ -1,6 +1,7 @@
 package com.luckgame.demo.service;
 
 import com.luckgame.demo.transactions.Transaction;
+import com.luckgame.demo.user.AppUser;
 
 import java.util.List;
 

@@ -1,11 +1,13 @@
 package com.luckgame.demo.service;
 
 import com.luckgame.demo.bet.Bet;
+import com.luckgame.demo.matches.Match;
+import freemarker.template.utility.NullArgumentException;
 
 import java.util.List;
 
 public interface BetService {
-    Bet saveBet(Bet bet);
+    void saveBet(Bet bet) throws IllegalArgumentException;
     List<Bet> getBets();
-   // Bet findBetById(Long id);
+    void setBetResult(Bet bet);
 }

@@ -28,7 +28,7 @@ public class MyUserDetailsService implements UserDetailsService {
         userRepo.findByUsername(username);
         Optional<AppUser> userOptional = userRepo.findByUsername(username);
 
-        userOptional.orElseThrow(() -> new UsernameNotFoundException("AppUser not found with username: " + username));
+        userOptional.orElseThrow(() -> new UsernameNotFoundException("User not found with username: " + username));
 
         return new MyUserDetails(userOptional.get());
     }
