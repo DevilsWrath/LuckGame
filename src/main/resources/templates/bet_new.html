@@ -7,7 +7,7 @@
 
     <!-- Site Title-->
 
-    <title>[[${pageTitle}]]</title>
+    <title>Place a Bet</title>
 
     <meta name="format-detection" content="telephone=no">
 
@@ -101,9 +101,7 @@
 
                                 </li>
 
-                                <li><a class="badge badge-primary" href="#">registration</a></li>
-
-                                <li><a class="link link-icon link-icon-left link-classic" href="login.html"><span class="icon fl-bigmug-line-login12"></span><span class="link-icon-text">Your Account</span></a></li>
+                                <li><a class="link link-icon link-icon-left link-classic" href="/login"><span class="icon fl-bigmug-line-login12"></span><span class="link-icon-text">Your Account</span></a></li>
 
                             </ul>
 
@@ -125,7 +123,7 @@
 
                             <div class="rd-navbar-brand">
 
-                                <!-- Brand--><a class="brand" href="index.html"><img class="brand-logo-dark" src="/images/logo-default-213x82.png" alt="" width="106" height="41"/><img class="brand-logo-light" src="/images/logo-inverse-213x82.png" alt="" width="106" height="41"/></a>
+                                <!-- Brand--><a class="brand" href="/"><img class="brand-logo-dark" src="/images/logo-default-213x82.png" alt="" width="106" height="41"/><img class="brand-logo-light" src="/images/logo-inverse-213x82.png" alt="" width="106" height="41"/></a>
 
                             </div>
 
@@ -516,19 +514,18 @@
         <div class="parallax-content breadcrumbs-custom context-dark">
 
             <div class="container">
-
-                <h3 class="breadcrumbs-custom-title">Transactions Page</h3>
+                <h5 class="breadcrumbs-custom-title">[[${pageTitle}]]</h5>
+                <h6 class="breadcrumbs-custom-title">[[${userBalance}]]</h6>
 
                 <ul class="breadcrumbs-custom-path">
 
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="/">Home</a></li>
 
-                    <li><a href="#">Pages</a></li>
+                    <li><a href="/matches">Matches</a></li>
 
-                    <li class="active">Transactions Page</li>
+                    <li class="active">New Bet</li>
 
                 </ul>
-
             </div>
 
         </div>
@@ -536,32 +533,22 @@
     </section>
 
     <body>
-
-
-
-    <h1>
-        [[${pageTitle}]]
-    </h1>
-
-<p>
-        [[${userBalance}]]
-    </p>
     <form th:action="@{'/bet/new/' + ${matchId}}" th:object="${bet}" th:method="POST">
 
         <label for="amount">Amount</label>
-        <input type="number" name="amount" id="amount" placeholder="Amount" th:field = "*{amount}">
+        <input type="number" name="amount" id="amount" placeholder="Amount" class="sport-table-wager-button-count" th:field = "*{amount}" style="width: 250px;"><br>
         <div class="form-group">
             <label for="betType">Choose Bet Type</label>
-            <select class="form-control selectpicker" th:field="*{betType}" id="betType">
+            <select class="form-control selectpicker" th:field="*{betType}" id="betType" style="width: 250px;">
                 <option value="">Nothing selected</option>
-                <option th:each="betType : ${T(com.luckgame.demo.bet.BetTypes).values()}"
-                        th:value="${betType.name()}" th:text="${betType.name()}">
+                <option th:each="betType : ${betTypes}"
+                        th:value="${betType.name()}" th:text="${betType.name()}"><br>
                 </option>
-            <input type = "submit" value="Submit" class="btn btn-primary m-2">
             </select>
         </div>
+        <input type = "submit" value="Submit" class="btn btn-primary m-2">
     </form>
-    </form>
+    <button class="btn btn-primary m-2" onclick="window.location.href='/matches'">Back</button>
     </body>
 </div>
 </div>

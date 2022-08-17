@@ -28,7 +28,7 @@ public class TransactionServiceImpl implements TransactionService {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
             String currentUserName = authentication.getName();
            AppUser user = userRepo.findUserByUsername(currentUserName);
-        if (transaction.getAmount() < 0 && user.getBalance() < transaction.getAmount()) {
+        if (transaction.getAmount() < 0) {
             throw new IllegalArgumentException("Amount cannot be negative");
         }
 
@@ -37,6 +37,9 @@ public class TransactionServiceImpl implements TransactionService {
         if (transaction.getIsDeposit()) {
             user.setBalance(user.getBalance() + transaction.getAmount());
         } else {
+            if (user.getBalance() < transaction.getAmount()) {
+                throw new IllegalArgumentException("Not enough money");
+            }
             user.setBalance(user.getBalance() - transaction.getAmount());
         }
 

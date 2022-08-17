@@ -10,4 +10,5 @@ public interface BetService {
     void saveBet(Bet bet) throws IllegalArgumentException;
     List<Bet> getBets();
     void setBetResult(Bet bet);
+    List<Bet> getBetsByUser(String username);
 }
