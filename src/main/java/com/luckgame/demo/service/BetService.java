@@ -7,5 +7,5 @@ import java.util.List;
 public interface BetService {
     Bet saveBet(Bet bet);
     List<Bet> getBets();
-    Bet findBetById(Long id);
+   // Bet findBetById(Long id);
 }

@@ -1,6 +1,5 @@
 package com.luckgame.demo.security;
 
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import java.util.Set;
@@ -8,7 +7,7 @@ import java.util.stream.Collectors;
 
 public enum ApplicationUserRole {
     CUSTOMER("customer", Set.of(ApplicationUserPermission.CUSTOMER_READ, ApplicationUserPermission.CUSTOMER_WRITE)),
-    ADMIN("admin", Set.of(ApplicationUserPermission.CUSTOMER_READ, ApplicationUserPermission.CUSTOMER_WRITE, ApplicationUserPermission.MATCH_READ, ApplicationUserPermission.MATCH_WRITE));
+    ADMIN("admin", Set.of(ApplicationUserPermission.CUSTOMER_READ, ApplicationUserPermission.CUSTOMER_WRITE, ApplicationUserPermission.ADMIN_READ, ApplicationUserPermission.ADMIN_WRITE));
 
     private final Set<ApplicationUserPermission> permission;
 

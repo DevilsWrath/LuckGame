@@ -27,8 +27,8 @@ public class BetServiceImpl implements BetService {
         return betRepo.findAll();
     }
 
-    @Override
-    public Bet findBetById(Long id) {
-        return betRepo.findById(id).orElseThrow(() -> new IllegalStateException("Bet with id " + id + " does not exist"));
-    }
+  //  @Override
+   // public Bet findBetById(Long id) {
+  //      return betRepo.findById(id).orElseThrow(() -> new IllegalStateException("Bet with id " + id + " does not exist"));
+  //  }
 }

@@ -1,15 +1,14 @@
-package com.luckgame.demo.transactions;
+package com.luckgame.demo.controller;
 
 import com.luckgame.demo.service.TransactionServiceImpl;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.luckgame.demo.transactions.Transaction;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/transactions")
+@RequestMapping("/transactions")
 public class TransactionController {
 
     private final TransactionServiceImpl transactionService;
@@ -23,9 +22,11 @@ public class TransactionController {
         return transactionService.getTransactions();
     }
 
-    @PostMapping("/api/v1/transactions")
-    public void addTransaction(@RequestBody Transaction transaction) {
-        transactionService.addTransaction(transaction);
+    @RequestMapping("/transactions")
+    public String addNewTransaction(@PathVariable Long id, Model model){
+        model.addAttribute("transaction", transactionService.getTransactionsByUserId(id));
+        return "transactions";
+
     }
 
 }
