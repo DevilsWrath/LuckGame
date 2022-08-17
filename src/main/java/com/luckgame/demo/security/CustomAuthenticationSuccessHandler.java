@@ -1,12 +1,9 @@
 package com.luckgame.demo.security;
 
-import com.luckgame.demo.service.MyUserDetails;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.RedirectStrategy;
-import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
 
@@ -31,19 +28,19 @@ public class CustomAuthenticationSuccessHandler
         boolean hasAdminRole = false;
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
         for (GrantedAuthority grantedAuthority : authorities) {
-            if (grantedAuthority.getAuthority().equals("ROLE_CUSTOMER")) {
+            if (grantedAuthority.getAuthority().equals("CUSTOMER")) {
                 hasUserRole = true;
                 break;
-            } else if (grantedAuthority.getAuthority().equals("ROLE_ADMIN")) {
+            } else if (grantedAuthority.getAuthority().equals("ADMIN")) {
                 hasAdminRole = true;
                 break;
             }
         }
 
         if (hasUserRole) {
-            redirectStrategy.sendRedirect(arg0, arg1, "matches");
+            redirectStrategy.sendRedirect(arg0, arg1, "/matches");
         } else if (hasAdminRole) {
-            redirectStrategy.sendRedirect(arg0, arg1, "admin");
+            redirectStrategy.sendRedirect(arg0, arg1, "/admin");
         } else {
             throw new IllegalStateException();
         }

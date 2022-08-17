@@ -1,10 +1,12 @@
 package com.luckgame.demo.controller;
 
 import com.luckgame.demo.matches.Match;
+import com.luckgame.demo.repo.UserRepo;
 import com.luckgame.demo.service.MatchServiceImpl;
 import com.luckgame.demo.service.MyUserDetailsService;
 import com.luckgame.demo.service.UserServiceImpl;
 import com.luckgame.demo.user.AppUser;
+import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -21,8 +23,11 @@ public class TemplateController {
 
     private final MatchServiceImpl matchService;
 
-    public TemplateController(MatchServiceImpl matchService) {
+    private final UserRepo userRepo;
+
+    public TemplateController(MatchServiceImpl matchService, UserRepo userRepo) {
         this.matchService = matchService;
+        this.userRepo = userRepo;
     }
 
     @RequestMapping("/")
@@ -39,8 +44,16 @@ public class TemplateController {
 
     @GetMapping("/login")
     public String getLoginView(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentUserName = authentication.getName();
+        AppUser user = userRepo.findUserByUsername(currentUserName);
+
         if (isAuthenticated()) {
-            return "redirect:/matches";
+            if ((user.hasRole("ADMIN"))) {
+                return "redirect:/admin";
+            } else {
+                return "redirect:/matches";
+            }
         }
 
         model.addAttribute("loginUser", new AppUser());

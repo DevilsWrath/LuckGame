@@ -1,5 +1,6 @@
 package com.luckgame.demo.security;
 
+import com.luckgame.demo.repo.UserRepo;
 import com.luckgame.demo.service.MyUserDetailsService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,21 +22,22 @@ import java.util.concurrent.TimeUnit;
 public class ApplicationSecurityConfig  extends WebSecurityConfigurerAdapter {
 
 
-    @Bean
-    public UserDetailsService userDetailsService() {
-        return new MyUserDetailsService();
-    }
+    private final MyUserDetailsService myUserDetailsService;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    private final UserRepo userRepo;
 
     @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+    public UserDetailsService userDetailsService() {
+        return new MyUserDetailsService(userRepo);
     }
+
 
     @Bean
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-        authProvider.setUserDetailsService(userDetailsService());
-        authProvider.setPasswordEncoder(passwordEncoder());
+        authProvider.setUserDetailsService(myUserDetailsService);
+        authProvider.setPasswordEncoder(bCryptPasswordEncoder);
 
         return authProvider;
     }
@@ -62,11 +64,11 @@ public class ApplicationSecurityConfig  extends WebSecurityConfigurerAdapter {
                 permitAll()
                     .antMatchers("/").permitAll()
                     .antMatchers("/register").permitAll()
-                    .antMatchers("/admin/**").hasRole("ADMIN")
-                    .antMatchers("/admin/result").hasRole("ADMIN")
-                    .antMatchers("/matches/**").hasRole("CUSTOMER")
-                    .antMatchers("/transactions/**").hasRole("CUSTOMER")
-                    .antMatchers("/bet/**").hasRole("CUSTOMER")
+                    .antMatchers("/admin/**").hasAuthority("ADMIN")
+                    .antMatchers("/admin/result").hasAuthority("ADMIN")
+                    .antMatchers("/matches/**").hasAuthority("CUSTOMER")
+                .antMatchers("/transactions/**").hasAuthority("CUSTOMER")
+                    .antMatchers("/bet/**").hasAuthority("CUSTOMER")
                     .anyRequest()
                     .authenticated()
                 .and()

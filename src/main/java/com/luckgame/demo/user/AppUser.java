@@ -2,21 +2,24 @@ package com.luckgame.demo.user;
 
 import com.luckgame.demo.Role.Role;
 import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.*;
 
 import static javax.persistence.GenerationType.AUTO;
+import static javax.persistence.GenerationType.SEQUENCE;
 
 @Entity
 @Table
 @NoArgsConstructor
 @AllArgsConstructor
-public class AppUser {
+public class AppUser implements UserDetails {
     @Id
-    @GeneratedValue(strategy = AUTO)
+    @SequenceGenerator(name = "user_seq", sequenceName = "user_seq", allocationSize = 1)
+    @GeneratedValue(strategy = SEQUENCE, generator = "user_seq")
     private Long ID;
     private String username;
     private String password;
@@ -123,4 +126,30 @@ public class AppUser {
         return false;
     }
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        SimpleGrantedAuthority authority =
+                new SimpleGrantedAuthority(roles.iterator().next().getName());
+        return Collections.singleton(authority);
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }
