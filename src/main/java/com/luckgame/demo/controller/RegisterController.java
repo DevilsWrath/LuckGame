@@ -30,11 +30,6 @@ public class RegisterController {
     public String postRegisterView(@ModelAttribute AppUser user) {
        if (isAuthenticated()) {
            return "redirect:/matches";
-       }
-        if (user.getEmail() != null ||
-                user.getPassword() != null ||
-                user.getUsername() != null) {
-            return "redirect:/register";
         } else {
             String userEmail = user.getEmail();
             if (!userEmail.contains("@") || !userEmail.contains(".")) {

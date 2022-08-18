@@ -9,6 +9,7 @@ import com.luckgame.demo.repo.UserRepo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -27,10 +28,15 @@ public class UserServiceImpl implements UserService {
 
     private final RoleServiceImpl roleService;
 
-    public UserServiceImpl(UserRepo userRepo, RoleRepo roleRepo, RoleServiceImpl roleService) {
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    public UserServiceImpl(UserRepo userRepo, RoleRepo roleRepo,
+                           RoleServiceImpl roleService,
+                           BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userRepo = userRepo;
         this.roleRepo = roleRepo;
         this.roleService = roleService;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
     public void addNewCustomer(AppUser user){
@@ -40,6 +46,7 @@ public class UserServiceImpl implements UserService {
         }
         user.setActive(true);
         roleService.addRoleToUser(user);
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
 
          userRepo.save(user);
     }
