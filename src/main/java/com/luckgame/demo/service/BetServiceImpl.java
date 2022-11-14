@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
@@ -35,16 +36,13 @@ public class BetServiceImpl implements BetService {
         String currentUserName = authentication.getName();
         AppUser user = userRepo.findUserByUsername(currentUserName);
         Match match = matchRepo.findByMatchId(bet.getMatchID().getMatchId());
-        if (bet.getAmount() < 0) {
+        if (bet.getAmount() < 0 || user.getBalance() < bet.getAmount()) {
             throw new IllegalArgumentException("Bet cannot be registered");
-        }else if (user.getBalance() < bet.getAmount()) {
-            throw new IllegalArgumentException("Bet cannot be registered");
-        } else {
-            Bet newBet = new Bet(user, match ,bet.getAmount(), bet.getBetType(), bet.getBetId());
-            betRepo.save(newBet);
-            user.setBalance(user.getBalance() - bet.getAmount());
-            bet.setWinAmount(0f);
         }
+        Bet newBet = new Bet(user, match ,bet.getAmount(), bet.getBetType(), bet.getBetId());
+        betRepo.save(newBet);
+        user.setBalance(user.getBalance() - bet.getAmount());
+        bet.setWinAmount(0f);
     }
 
     @Override
@@ -61,7 +59,7 @@ public class BetServiceImpl implements BetService {
         Match currentMatch = matchRepo.findByMatchId(bet.getMatchID().getMatchId());
         currentMatch.setResulted(true);
         for (Bet b : getBets()) {
-            if (b.getMatchID().getMatchId() == currentMatch.getMatchId()) {
+            if (Objects.equals(b.getMatchID().getMatchId(), currentMatch.getMatchId())) {
                 b.setBetResult(bet.getBetResult());
             }
         }
