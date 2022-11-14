@@ -43,8 +43,6 @@ public class Admin {
         for (Bet bet : bets) {
              if (bet.getResults() == Results.WIN) {
                  systemGain = systemGain - bet.getAmount();
-             } else {
-                 systemGain = systemGain + bet.getAmount();
              }
 
         }

@@ -23,6 +23,7 @@ public class TransactionServiceImpl implements TransactionService {
     private final UserRepo userRepo;
 
     @Override
+    @Transactional(dontRollbackOn = IllegalArgumentException.class)
     public void addTransaction(Transaction transaction) throws IllegalArgumentException{
 
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
