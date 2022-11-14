@@ -64,6 +64,7 @@ public class ApplicationSecurityConfig  extends WebSecurityConfigurerAdapter {
                 permitAll()
                     .antMatchers("/").permitAll()
                     .antMatchers("/register").permitAll()
+                    .antMatchers("/contactus").permitAll()
                     .antMatchers("/admin/**").hasAuthority("ADMIN")
                     .antMatchers("/admin/result").hasAuthority("ADMIN")
                     .antMatchers("/matches/**").hasAuthority("CUSTOMER")
