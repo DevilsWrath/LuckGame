@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Matches</title>
+    <title>Contact Me</title>
 </head>
 <body>
 <!DOCTYPE html>
@@ -14,7 +14,7 @@
 
     <!-- Site Title-->
 
-    <title>Matches</title>
+    <title>Contact Me</title>
 
     <meta name="format-detection" content="telephone=no">
 
@@ -84,8 +84,6 @@
 
                                 <li><a class="link link-classic" href="news.html">News</a></li>
 
-                                <li><a class="link link-classic" href="/contactus">Contacts</a></li>
-
                             </ul>
 
                         </div>
@@ -152,20 +150,6 @@
 
                         <div class="rd-navbar-main-container container">
 
-                            <!-- RD Navbar Nav-->
-
-                            <ul class="rd-navbar-nav">
-
-                                <li class="rd-nav-item" th:action="@{/transactions}"><a class="rd-nav-link" href="/transactions">Transaction</a>
-
-                                </li>
-
-                                <li class="rd-nav-item" th:action="@{/bet/history}"><a class="rd-nav-link" href="/bet/history">History</a>
-
-                                </li>
-                            </ul>
-
-
                             <div class="rd-navbar-main-element">
 
                                 <ul class="list-inline list-inline-sm">
@@ -228,19 +212,11 @@
 
                                 <div class="heading-component-inner">
 
-                                    <h5 class="heading-component-title">[[${userBalance}]]</h5>
-
-                                    <h5 class="heading-component-title">Football ([[${count}]])
+                                    <h5 class="heading-component-title">You can contact me through these links</h5>
 
                                     </h5>
 
                                     <div>
-
-                                        <ul class="list-inline list-inline-xs">
-
-                                            <li><a class="button button-xs button-red-outline active" href="#">Live</a></li>
-
-                                        </ul>
 
                                     </div>
 
@@ -252,45 +228,16 @@
 
                             <div class="sport-table-header">
 
-                                <p>National Championship ([[${count}]])</p>
-
+                                <p>Linkedin:</p><a class="link" href="https://www.linkedin.com/in/sava%C5%9F-o%C4%9Ful-yi%C4%9Fit-638b80181">Savas Ogul Yigit Linkedin page</a>
+                                <p>Instagram:</p><a class="link" href="https://www.instagram.com/devilswrath/">Savas Ogul Yigit Instagram page</a>
+                                <p>Github Page:</p><a class="link" href="https://github.com/DevilsWrath">Savas Ogul Yigit Github page</a>
+                                <p>Twitter:</p><a class="link" href="https://twitter.com/skdevilswrathh">Savas Ogul Yigit Twitter page</a>
                             </div>
-
-                            <!-- Loop Baslangic-->
-                            <div class="sport-table" th:if="${not #lists.isEmpty(matches)}">
-                                <div class="sport-table-tr" th:each="Matches : ${matches}">
-                                    <div class="row sport-row align-items-center row-15">
-                                        <div class="col-sm-1 col-md-1 col-lg-1">
-                                            <div class="sport-table-icon">
-                                                <div class="sprite sprite-sport-icon-07"></div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-9 col-md-4 col-lg-3" >
-                                            <div class="sport-table-title">
-                                                <div class="sport-table-title-item sport-table-title-item-left">
-                                                    <span class="sport-table-title-team" th:text="${Matches.homeTeam}"></span>
-                                                    <span class="sport-table-title-team" th:text="${Matches.awayTeam}"></span></div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-10 col-md-6 col-lg-7">
-                                            <div class="sport-table-wager">
-                                                <a class="sport-table-wager-button"><span th:text="${Matches.homeTeam}">[[${homeTeam}]]</span><span class="sport-table-wager-button-count" th:text="${Matches.homeTeamRate}"></span></a>
-                                                <a class="sport-table-wager-button"><span>Draw</span><span class="sport-table-wager-button-count" th:text="${Matches.drawRate}"></span></a>
-                                                <a class="sport-table-wager-button"><span th:text="${Matches.awayTeam}">[[${awayTeam}]]</span><span class="sport-table-wager-button-count" th:text="${Matches.awayTeamRate}"></span></a>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-2 col-md-1 col-lg-1">
-                                            <div class="sport-table-bonus"><span class="sport-table-bonus-count"><a th:href="@{'/bet/new/' + ${Matches.matchId}}">Bet</a></span><span class="sport-table-bonus-icon material-icons-chevron_right"></span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div></div>
-                        <!-- Loop Bitis-->
                     </div>
                 </div>
             </div>
         </div>
-
+    </div>
     </section>
 
     <!-- Latest News-->
@@ -384,7 +331,7 @@
 
                                     <div class="unit-body">
 
-                                        <p class="heading-7 opacity-2">Join Our Team</p><a class="link" href="mailto:savasogulyigit@hotmail.com">savasogulyigit@hotmail.com</a>
+                                        <p class="heading-7 opacity-2">Join Our Team</p><a class="link" href="mailto:#">info@demolink.org</a>
 
                                     </div>
 
@@ -408,7 +355,7 @@
 
                                     <div class="unit-body">
 
-                                        <p class="heading-7 opacity-2">Contact Us</p><a class="link" href="mailto:savasogulyigit@hotmail.com">savasogulyigit@hotmail.com</a>
+                                        <p class="heading-7 opacity-2">Contact Us</p><a class="link" href="mailto:#">mail@demolink.org</a>
 
                                     </div>
 
@@ -434,7 +381,7 @@
 
                                 </ul>
 
-                            </div><a class="button button-sm button-gray-outline" href="/contactus">Get in Touch</a>
+                            </div><a class="button button-sm button-gray-outline" href="contact-us.html">Get in Touch</a>
 
                         </div>
 

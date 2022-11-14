@@ -41,6 +41,10 @@ public class TemplateController {
 
         return "index";
     }
+    @RequestMapping("/contactus")
+    public String contactUs(){
+        return "contact-us";
+    }
 
     @GetMapping("/login")
     public String getLoginView(Model model) {
